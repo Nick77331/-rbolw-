@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Retro Bowl - Single File</title>
+  <title>Retro Bowl - Single File Test</title>
   <style>
     body {
       margin: 0;
@@ -18,21 +18,28 @@
   </style>
 </head>
 <body>
-  <!-- Canvas for the game -->
+  <!-- Canvas for your game -->
   <canvas id="gameCanvas" width="960" height="540"></canvas>
 
   <!-- Your game script -->
   <script>
-    // Replace this placeholder with your actual game code
+    // Replace this with your actual game code
+    // For example, your game initialization function:
     function GameMaker_Init() {
       const ctx = document.getElementById('gameCanvas').getContext('2d');
       ctx.fillStyle = 'white';
       ctx.font = '30px Arial';
       ctx.fillText('Game script loaded!', 300, 270);
+
+      // Your actual game code should go here
+      // e.g., initialize game objects, start game loop, etc.
     }
   </script>
 
-  <!-- Call your init function on load -->
+  <!-- Load your game script here -->
+  <!-- If your game code is external, replace the above with: -->
+  <!-- <script src="path/to/your/game.js"></script> -->
+
   <script>
     window.onload = function() {
       if (typeof GameMaker_Init === 'function') {
@@ -41,7 +48,7 @@
         const ctx = document.getElementById('gameCanvas').getContext('2d');
         ctx.fillStyle = 'red';
         ctx.font = '20px Arial';
-        ctx.fillText('Game script not loaded!', 350, 270);
+        ctx.fillText('Game script NOT loaded!', 300, 270);
       }
     };
   </script>
