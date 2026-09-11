@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Retro Bowl - Test Page</title>
+  <title>Retro Bowl - Single File</title>
   <style>
     body {
-      background: #000;
       margin: 0;
+      background-color: #000;
       overflow: hidden;
     }
     canvas {
@@ -18,34 +18,32 @@
   </style>
 </head>
 <body>
-  <!-- Canvas for your game -->
+  <!-- Canvas for the game -->
   <canvas id="gameCanvas" width="960" height="540"></canvas>
 
-  <!-- Load your game script -->
-  <script src="html5game/RetroBowl.js"></script>
+  <!-- Your game script -->
   <script>
-    // Simple test to draw on canvas
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Check if your game script defines the init function
-    if (typeof GameMaker_Init === 'function') {
-      window.onload = function() {
-        GameMaker_Init();
-
-        // Optional: Draw a message to confirm
-        ctx.fillStyle = 'white';
-        ctx.font = '30px Arial';
-        ctx.fillText('Game should start now!', 300, 270);
-      };
-    } else {
-      // If your game script doesn't define GameMaker_Init, just draw text
-      window.onload = function() {
-        ctx.fillStyle = 'white';
-        ctx.font = '30px Arial';
-        ctx.fillText('Game script not loaded!', 300, 270);
-      };
+    // Replace this placeholder with your actual game code
+    function GameMaker_Init() {
+      const ctx = document.getElementById('gameCanvas').getContext('2d');
+      ctx.fillStyle = 'white';
+      ctx.font = '30px Arial';
+      ctx.fillText('Game script loaded!', 300, 270);
     }
+  </script>
+
+  <!-- Call your init function on load -->
+  <script>
+    window.onload = function() {
+      if (typeof GameMaker_Init === 'function') {
+        GameMaker_Init();
+      } else {
+        const ctx = document.getElementById('gameCanvas').getContext('2d');
+        ctx.fillStyle = 'red';
+        ctx.font = '20px Arial';
+        ctx.fillText('Game script not loaded!', 350, 270);
+      }
+    };
   </script>
 </body>
 </html>
